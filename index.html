@@ -48,20 +48,6 @@
         <a href="#booking" class="btn btn--small btn--primary nav__cta">시간표 시연 보기</a>
       </nav>
 
-      <div class="header-presenter-tools">
-        <button type="button" class="btn-presenter" id="btnHeaderFullscreen" title="전체화면 토글 (단축키: F)">
-          <svg class="icon-fs-enter" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-          <svg class="icon-fs-exit" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M4 14h6m0 0v6m0-6L3 21m17-7h-6m0 0v6m0-6l7 7M4 10h6m0 0V4m0 6L3 3m17 7h-6m0 0V4m0 6l7-7"/></svg>
-          <span class="btn-presenter__text">전체화면</span>
-          <kbd class="btn-presenter__kbd">F</kbd>
-        </button>
-        <button type="button" class="btn-presenter btn-presenter--primary" id="btnHeaderAssistant" title="발표 도우미 큐카드 열기 (단축키: N)">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <span class="btn-presenter__text">발표 도우미</span>
-          <kbd class="btn-presenter__kbd">N</kbd>
-        </button>
-      </div>
-
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="메뉴 열기">
         <span></span><span></span><span></span>
       </button>
@@ -465,6 +451,13 @@
             </div>
           </div>
         </div>
+
+        <div style="margin-top: 28px; text-align: center;" class="reveal">
+          <a href="ir-deck.html" target="_blank" class="btn btn--outline" style="border-color: var(--burgundy); color: var(--burgundy); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            11개 슬라이드 전체 IR 피치덱 발표 웹페이지 열기 ↗
+          </a>
+        </div>
       </div>
     </section>
 
@@ -531,6 +524,7 @@
           <li><a href="#deposit">예약금 시스템</a></li>
           <li><a href="#business">사업 모델</a></li>
           <li><a href="#trust">신뢰와 안전</a></li>
+          <li><a href="ir-deck.html" target="_blank" style="color: #ff9fb2; font-weight: 600;">IR 피치덱 발표 ↗</a></li>
         </ul>
       </nav>
     </div>
@@ -570,11 +564,23 @@
 
       <!-- 발표 도구 (큐카드, 포인터, 전체화면) -->
       <div class="presenter-dock__group presenter-dock__tools">
-        <button type="button" class="dock-btn dock-btn--tool" id="dockAssistantToggle" title="발표 도우미 큐카드 열기 (단축키: N)" aria-label="발표 도우미 큐카드">
+        <button type="button" class="dock-btn dock-btn--tool" id="dockAssistantToggle" title="발표 대본 큐카드 서랍 열기 (단축키: N)" aria-label="발표 대본 큐카드">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <span class="dock-btn-label">도우미</span>
+          <span class="dock-btn-label">대본</span>
           <kbd class="dock-kbd">N</kbd>
         </button>
+
+        <button type="button" class="dock-btn dock-btn--tool" id="dockTeleprompterToggle" title="화면 하단 자막 대본 켜기/끄기 (단축키: S)" aria-label="화면 자막">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M6 15h12M8 11h8"/></svg>
+          <span class="dock-btn-label">자막</span>
+          <kbd class="dock-kbd">S</kbd>
+        </button>
+
+        <a href="ir-deck.html" target="_blank" class="dock-btn dock-btn--tool" id="dockIRDeckToggle" title="IR Deck 발표 페이지 열기 (새 탭 / 단축키: I)" aria-label="IR Deck 발표 페이지">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          <span class="dock-btn-label">IR Deck</span>
+          <kbd class="dock-kbd">I</kbd>
+        </a>
 
         <button type="button" class="dock-btn dock-btn--tool" id="dockLaserToggle" title="가상 레이저 포인터 토글 (단축키: L)" aria-label="레이저 포인터">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -617,50 +623,61 @@
         </div>
       </header>
 
-      <!-- 섹션 퀵 점프 탭 바 -->
-      <nav class="hud-section-tabs" id="hudSectionTabs" aria-label="섹션 바로가기">
-        <!-- JS에서 10개 섹션 버튼 동적 렌더링 -->
+      <!-- HUD 모드 선택 탭 (홈페이지 시연 대본 vs IR 피치덱 요약) -->
+      <nav class="hud-mode-nav" role="tablist" aria-label="도우미 모드">
+        <button type="button" class="hud-mode-tab is-active" id="hudTabScript" role="tab" aria-selected="true">
+          🎙️ 홈페이지 시연 대본
+        </button>
+        <button type="button" class="hud-mode-tab" id="hudTabIR" role="tab" aria-selected="false">
+          💼 IR 피치덱 &amp; Q&amp;A
+        </button>
       </nav>
 
-      <!-- 타이머 및 발표 목표 시간 프리셋 -->
-      <div class="hud-timer-card">
-        <div class="hud-timer-card__top">
-          <div>
-            <span class="hud-subhead">발표 피치 타이머</span>
-            <div class="hud-timer-digital" id="hudTimerDigital">00:00</div>
+      <!-- 1. 홈페이지 시연 대본 뷰 -->
+      <div class="hud-view-script" id="hudViewScript">
+        <!-- 섹션 퀵 점프 탭 바 -->
+        <nav class="hud-section-tabs" id="hudSectionTabs" aria-label="섹션 바로가기">
+          <!-- JS에서 10개 섹션 버튼 동적 렌더링 -->
+        </nav>
+
+        <!-- 타이머 및 발표 목표 시간 프리셋 -->
+        <div class="hud-timer-card">
+          <div class="hud-timer-card__top">
+            <div>
+              <span class="hud-subhead">발표 피치 타이머</span>
+              <div class="hud-timer-digital" id="hudTimerDigital">00:00</div>
+            </div>
+            <div class="hud-timer-controls">
+              <button type="button" class="btn btn--small btn--primary" id="hudTimerPlayBtn">타이머 시작</button>
+              <button type="button" class="btn btn--small btn--ghost" id="hudTimerResetBtn">초기화</button>
+            </div>
           </div>
-          <div class="hud-timer-controls">
-            <button type="button" class="btn btn--small btn--primary" id="hudTimerPlayBtn">타이머 시작</button>
-            <button type="button" class="btn btn--small btn--ghost" id="hudTimerResetBtn">초기화</button>
+          <div class="hud-timer-presets">
+            <span class="hud-preset-label">피치 프리셋:</span>
+            <button type="button" class="hud-preset-btn" data-preset="180">3분 피치</button>
+            <button type="button" class="hud-preset-btn is-active" data-preset="300">5분 표준</button>
+            <button type="button" class="hud-preset-btn" data-preset="600">10분 심층</button>
+            <button type="button" class="hud-preset-btn" data-preset="0">자율 카운트업</button>
+          </div>
+          <div class="hud-timer-progress-wrap">
+            <div class="hud-timer-progress-bar" id="hudTimerProgressBar" style="width: 0%;"></div>
           </div>
         </div>
-        <div class="hud-timer-presets">
-          <span class="hud-preset-label">피치 프리셋:</span>
-          <button type="button" class="hud-preset-btn" data-preset="180">3분 피치</button>
-          <button type="button" class="hud-preset-btn is-active" data-preset="300">5분 표준</button>
-          <button type="button" class="hud-preset-btn" data-preset="600">10분 심층</button>
-          <button type="button" class="hud-preset-btn" data-preset="0">자율 카운트업</button>
-        </div>
-        <div class="hud-timer-progress-wrap">
-          <div class="hud-timer-progress-bar" id="hudTimerProgressBar" style="width: 0%;"></div>
-        </div>
-      </div>
 
       <!-- 큐카드 본문 영역 (대본, 핵심 포인트, Q&A 팁) -->
       <div class="presenter-hud__body" id="hudBodyContent">
         <div class="hud-card">
           <div class="hud-card__meta">
-            <span class="hud-card__num" id="hudCardNum">SECTION 01</span>
-            <h3 class="hud-card__title" id="hudCardTitle">HERO — 서비스 개요 &amp; 슬로건</h3>
+            <div>
+              <span class="hud-card__num" id="hudCardNum">SECTION 01</span>
+              <h3 class="hud-card__title" id="hudCardTitle">HERO — 서비스 개요 &amp; 슬로건</h3>
+            </div>
+            <button type="button" class="btn-tele-launch" id="hudLaunchTeleBtn" title="화면 하단에 자막으로 띄우기 (단축키: S)">
+              📺 화면 자막으로 띄우기
+            </button>
           </div>
 
-          <div class="hud-box hud-box--highlight">
-            <h4 class="hud-box__title">📌 핵심 전달 포인트</h4>
-            <ul class="hud-bullets" id="hudKeyPoints">
-              <!-- JS 동적 주입 -->
-            </ul>
-          </div>
-
+          <!-- 1. 추천 발표 멘트 (구어체 대본) - 맨 위에 바로 보이도록 배치 -->
           <div class="hud-box hud-box--script">
             <div class="hud-box__head">
               <h4 class="hud-box__title">🎙️ 추천 발표 멘트 (구어체 대본)</h4>
@@ -671,6 +688,15 @@
             </div>
           </div>
 
+          <!-- 2. 핵심 전달 포인트 -->
+          <div class="hud-box hud-box--highlight">
+            <h4 class="hud-box__title">📌 핵심 전달 포인트</h4>
+            <ul class="hud-bullets" id="hudKeyPoints">
+              <!-- JS 동적 주입 -->
+            </ul>
+          </div>
+
+          <!-- 3. 심사위원 예상 질문 & 답변 전략 -->
           <div class="hud-box hud-box--qa">
             <h4 class="hud-box__title">💡 심사위원 예상 질문 &amp; 답변 전략</h4>
             <div class="hud-qa-content" id="hudQaContent">
@@ -678,13 +704,172 @@
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- /presenter-hud__body -->
+    </div><!-- /hud-view-script -->
+
+    <!-- 2. IR 피치덱 & 투자자 Q&A 뷰 -->
+    <div class="hud-view-ir" id="hudViewIR">
+        <!-- IR 개요 배너 -->
+        <div class="ir-overview-banner">
+          <div class="ir-overview-title">
+            <span>💼</span> TODAY DATE — IR 피치덱 핵심 요약 &amp; 심사위원 대응
+          </div>
+          <div class="ir-overview-desc">
+            홈페이지 시연과 함께 심사위원 및 투자자에게 어필할 <strong>핵심 비즈니스 지표(Unit Economics)</strong>와 <strong>슬라이드별 스피치 멘트</strong>, <strong>단골 압박 질문 Q&amp;A</strong>입니다.
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;">
+            <a href="ir-deck.html" target="_blank" class="btn btn--small btn--primary" style="font-size: 13px; text-decoration: none; padding: 0 16px;">
+              📊 16:9 슬라이드 발표창 열기 ↗
+            </a>
+            <a href="TODAY_DATE_IR_DECK.pdf" target="_blank" class="btn btn--small btn--ghost" style="font-size: 13px; text-decoration: none; padding: 0 16px;">
+              📥 IR Deck PDF 다운로드 ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 핵심 투자 지표 그리드 -->
+        <div class="ir-metrics-grid">
+          <div class="ir-metric-card">
+            <div class="ir-metric-val">75%</div>
+            <div class="ir-metric-lbl">건당 공헌이익률 (22,500원 / 3만원)</div>
+          </div>
+          <div class="ir-metric-card">
+            <div class="ir-metric-val">72억 원</div>
+            <div class="ir-metric-lbl">초기 거점 SOM 시장 (성수·강남 청년)</div>
+          </div>
+          <div class="ir-metric-card">
+            <div class="ir-metric-val">100%</div>
+            <div class="ir-metric-lbl">매칭 확정 전 무과금 (신뢰 극대화)</div>
+          </div>
+          <div class="ir-metric-card">
+            <div class="ir-metric-val">0원</div>
+            <div class="ir-metric-lbl">공간 고정 임대료 (로컬 카페 제휴 모델)</div>
+          </div>
+        </div>
+
+        <!-- IR 슬라이드 리스트 및 스피치 멘트 -->
+        <div class="ir-slide-list">
+          <!-- Slide 01 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 01 · HOOK</span>
+              <span class="hud-subhead">홈페이지: HERO</span>
+            </div>
+            <h4 class="ir-slide-card__title">미용실 예약처럼 당일 만나는 1:1 소개팅</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"미용실을 예약하듯 원하는 시간에 새로운 인연을 당일 예약하고 만나는 혁신적인 오프라인 1:1 매칭 플랫폼, TODAY DATE입니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 02 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 02 · PROBLEM</span>
+              <span class="hud-subhead">홈페이지: THE PROBLEM</span>
+            </div>
+            <h4 class="ir-slide-card__title">기존 소개팅의 3대 고통 (기다림, 선결제 불신, 단체 미팅 피로)</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"기존 앱은 며칠씩 메시지만 주고받다 흐지부지되고, 파티형 미팅은 선결제 부담과 시끄러운 술자리 피로도가 큽니다. 청년들은 오늘 비는 시간에 안전하게 1:1로 만날 한 사람을 원합니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 03 & 04 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 03~04 · SOLUTION</span>
+              <span class="hud-subhead">홈페이지: SOLUTION &amp; HOW IT WORKS</span>
+            </div>
+            <h4 class="ir-slide-card__title">Match First, Pay Later — 매칭 확정 후 예약금 결제</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"양쪽 참가자의 일정과 만남 의사가 100% 확정되기 전까지 단 1원도 결제하지 않습니다. 매칭이 성립된 후에만 예약금을 결제하여 결제 저항을 원천 차단하고 40분 카페 만남으로 연결합니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 05 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 05 · MARKET SIZE</span>
+              <span class="hud-subhead">TAM-SAM-SOM</span>
+            </div>
+            <h4 class="ir-slide-card__title">2030 싱글 세대의 오프라인 실만남 수요 폭발</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"국내 2030 미혼 데이팅 시장 1조 2천억 원 중 서울 성수·강남 등 청년 유동인구가 집중된 거점을 시작으로 초기 72억 원 규모의 SOM 시장을 정조준합니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 06 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 06 · UNIT ECONOMICS</span>
+              <span class="hud-subhead">수익성 &amp; 공헌이익</span>
+            </div>
+            <h4 class="ir-slide-card__title">건당 3만원 이용료 대비 75%의 압도적 공헌이익</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"1인 3만원(1쌍 6만원) 기준 제휴 카페 음료비 6,500원과 결제 수수료를 제외하면 1회당 22,500원의 공헌이익이 남습니다. 고정 임대료 없이 유휴 카페 제휴로 운영되어 고정비 리스크가 0에 가깝습니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 07 & 08 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 07~08 · GTM &amp; TRUST</span>
+              <span class="hud-subhead">거점 론칭 &amp; 노쇼 방지</span>
+            </div>
+            <h4 class="ir-slide-card__title">로컬 핫플 중심 고밀도 론칭 &amp; 본인인증 100%</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"성수동 5개 파트너 카페를 앵커 거점으로 잡고 카카오 본인인증 및 매칭 확정 후 예약금 제도를 통해 소개팅 최대 리스크인 노쇼(No-Show)를 사전에 통제합니다."</p>
+            </div>
+          </article>
+
+          <!-- Slide 09 & 10 -->
+          <article class="ir-slide-card">
+            <div class="ir-slide-card__head">
+              <span class="ir-slide-card__num">SLIDE 09~10 · TRACTION &amp; ASK</span>
+              <span class="hud-subhead">마일스톤 &amp; 펀딩</span>
+            </div>
+            <h4 class="ir-slide-card__title">10쌍 파일럿 검증 후 수도권 확장 · 5,000만 원 시드 유치</h4>
+            <div class="ir-slide-script">
+              <div class="ir-slide-script__label">🎙️ 심사역 앞 피치 멘트</div>
+              <p class="ir-slide-script__text">"홈페이지를 통한 사전 대기자 모집 후 10쌍의 클로즈드 파일럿을 즉시 가동합니다. 이후 성수·강남·홍대 3대 거점으로 스케일업하며, 5천만 원의 사업화 자금으로 제휴 및 마케팅을 가속화하겠습니다."</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- 심사위원 TOP 5 질문 & 필승 답변 -->
+        <div class="hud-box hud-box--qa" style="margin-top: 24px;">
+          <h4 class="hud-box__title">💡 심사위원 단골 질문 TOP 5 &amp; 모범 답변 요약</h4>
+          <div class="hud-qa-content">
+            <p style="margin-bottom: 12px;"><strong>Q1. 틴더/글램 등 기존 앱과 뭐가 다른가요?</strong><br>
+            A. 기존 앱은 온라인 채팅 중심이라 실제 오프라인 만남 전환율이 5% 미만입니다. 저희는 미용실처럼 당일 빈 시간에 1:1로 즉시 만나며, 매칭 확정 전 무과금으로 결제 저항을 원천 차단했습니다.</p>
+
+            <p style="margin-bottom: 12px;"><strong>Q2. 당일인데 상대가 안 구해지거나 성비가 안 맞으면요?</strong><br>
+            A. 선결제를 전혀 받지 않으므로 고객에게 환불 부담이나 금전 피해가 없습니다. 초기에는 성수 거점의 16~19시에 타임슬롯을 집중시켜 유동인구 매칭 밀도를 극대화합니다.</p>
+
+            <p style="margin-bottom: 12px;"><strong>Q3. 예약금 환불 및 노쇼 제재는 어떻게 하나요?</strong><br>
+            A. 당일 일방적 노쇼 시 예약금(1~1.5만원)은 전액 몰취되며, 피해 상대방에게는 100% 환불과 함께 무료 매칭권 및 커피 기프티콘을 위로 보상으로 지급합니다.</p>
+
+            <p style="margin-bottom: 12px;"><strong>Q4. 카페 공간 대관료는 어떻게 해결하나요?</strong><br>
+            A. 자체 매장 임대 대신 분위기 좋은 로컬 카페들과 유휴 시간대 '시간당 좌석 점유 + 1인 1음료 B2B 정산' 제휴를 맺어 고정비 0원으로 운영합니다.</p>
+
+            <p><strong>Q5. 40분 만남 이후 2차 애프터는 어떻게 유도하나요?</strong><br>
+            A. 40분은 서로의 첫인상과 티키타카를 확인하기에 최적화된 시간입니다. 종료 시 인근 제휴 맛집/카페 2차 할인 쿠폰을 발송해 자연스러운 이동을 돕습니다.</p>
+          </div>
+        </div>
+      </div><!-- /hud-view-ir -->
 
       <!-- 단축키 안내 풋터 -->
       <footer class="presenter-hud__footer">
         <div class="hud-shortcuts">
           <span><kbd>F</kbd> 전체화면</span>
-          <span><kbd>N</kbd> 큐카드 토글</span>
+          <span><kbd>N</kbd> 큐카드 서랍</span>
+          <span><kbd>S</kbd> 화면 자막</span>
+          <span><kbd>I</kbd> IR Deck</span>
           <span><kbd>T</kbd> 타이머</span>
           <span><kbd>L</kbd> 레이저 포인터</span>
           <span><kbd>←</kbd><kbd>→</kbd> 섹션 이동</span>
@@ -693,6 +878,27 @@
       </footer>
     </div>
   </section>
+
+  <!-- ============ ON-SCREEN TELEPROMPTER (화면 자막 프롬프터 바) ============ -->
+  <aside class="teleprompter-bar" id="teleprompterBar" aria-label="화면 발표 대본 자막" aria-hidden="true">
+    <div class="teleprompter-bar__inner">
+      <div class="teleprompter-bar__top">
+        <div class="teleprompter-bar__tag">
+          <span class="tele-pulse" aria-hidden="true"></span>
+          <span id="teleSectionTag">01 HERO · 발표 대본 자막</span>
+        </div>
+        <div class="teleprompter-bar__actions">
+          <button type="button" class="tele-btn" id="teleFontToggle" title="자막 글자 크기 변경">글자 크게</button>
+          <button type="button" class="tele-btn tele-btn--close" id="teleCloseBtn" title="자막 닫기 (단축키: S 또는 ESC)">✕ 닫기</button>
+        </div>
+      </div>
+      <div class="teleprompter-bar__body">
+        <p class="teleprompter-bar__text" id="teleprompterText">
+          대본 로딩 중...
+        </p>
+      </div>
+    </div>
+  </aside>
 
   <!-- 가상 레이저 포인터 요소 -->
   <div id="laserPointer" class="laser-pointer" aria-hidden="true"></div>

@@ -540,16 +540,40 @@
   var btnHeaderAssistant = $('#btnHeaderAssistant');
   var dockAssistantBtn = $('#dockAssistantToggle');
   var dockIndicatorBtn = $('#dockSectionIndicator');
+  var btnHeaderIR = $('#btnHeaderIR');
+  var dockIRBtn = $('#dockIRDeckToggle');
+  var hudTabScript = $('#hudTabScript');
+  var hudTabIR = $('#hudTabIR');
+  var hudViewScript = $('#hudViewScript');
+  var hudViewIR = $('#hudViewIR');
 
   function isPresenterHUDOpen() {
     return hudElement && hudElement.classList.contains('is-open');
   }
 
-  function openPresenterHUD() {
+  function setHUDMode(mode) {
+    var isIR = mode === 'ir';
+    if (hudTabScript) {
+      hudTabScript.classList.toggle('is-active', !isIR);
+      hudTabScript.setAttribute('aria-selected', String(!isIR));
+    }
+    if (hudTabIR) {
+      hudTabIR.classList.toggle('is-active', isIR);
+      hudTabIR.setAttribute('aria-selected', String(isIR));
+    }
+    if (hudViewScript) hudViewScript.classList.toggle('is-hidden', isIR);
+    if (hudViewIR) hudViewIR.classList.toggle('is-active', isIR);
+    if (btnHeaderIR) btnHeaderIR.classList.toggle('is-active', isIR && isPresenterHUDOpen());
+    if (dockIRBtn) dockIRBtn.classList.toggle('is-active', isIR && isPresenterHUDOpen());
+  }
+
+  function openPresenterHUD(mode) {
     if (!hudElement) return;
     hudElement.classList.add('is-open');
     hudElement.setAttribute('aria-hidden', 'false');
     if (dockAssistantBtn) dockAssistantBtn.classList.add('is-active');
+    if (btnHeaderAssistant) btnHeaderAssistant.classList.add('is-active');
+    if (mode) setHUDMode(mode);
   }
 
   function closePresenterHUD() {
@@ -557,19 +581,40 @@
     hudElement.classList.remove('is-open');
     hudElement.setAttribute('aria-hidden', 'true');
     if (dockAssistantBtn) dockAssistantBtn.classList.remove('is-active');
+    if (btnHeaderAssistant) btnHeaderAssistant.classList.remove('is-active');
+    if (btnHeaderIR) btnHeaderIR.classList.remove('is-active');
+    if (dockIRBtn) dockIRBtn.classList.remove('is-active');
   }
 
-  function togglePresenterHUD() {
+  function togglePresenterHUD(mode) {
     if (isPresenterHUDOpen()) {
+      // If already open with different mode, switch mode instead of closing
+      if (mode && hudTabIR) {
+        var currentIsIR = hudTabIR.classList.contains('is-active');
+        if ((mode === 'ir' && !currentIsIR) || (mode === 'script' && currentIsIR)) {
+          setHUDMode(mode);
+          return;
+        }
+      }
       closePresenterHUD();
     } else {
-      openPresenterHUD();
+      openPresenterHUD(mode);
     }
   }
 
-  if (btnHeaderAssistant) btnHeaderAssistant.addEventListener('click', togglePresenterHUD);
-  if (dockAssistantBtn) dockAssistantBtn.addEventListener('click', togglePresenterHUD);
-  if (dockIndicatorBtn) dockIndicatorBtn.addEventListener('click', togglePresenterHUD);
+  if (hudTabScript) hudTabScript.addEventListener('click', function () { setHUDMode('script'); });
+  if (hudTabIR) hudTabIR.addEventListener('click', function () { setHUDMode('ir'); });
+
+  if (btnHeaderAssistant) btnHeaderAssistant.addEventListener('click', function () { togglePresenterHUD('script'); });
+  if (dockAssistantBtn) dockAssistantBtn.addEventListener('click', function () { togglePresenterHUD('script'); });
+  if (dockIndicatorBtn) dockIndicatorBtn.addEventListener('click', function () { togglePresenterHUD('script'); });
+  if (btnHeaderIR) btnHeaderIR.addEventListener('click', function () { togglePresenterHUD('ir'); });
+  if (dockIRBtn) {
+    dockIRBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open('ir-deck.html', '_blank');
+    });
+  }
   if (hudCloseBtn) hudCloseBtn.addEventListener('click', closePresenterHUD);
   if (hudBackdrop) hudBackdrop.addEventListener('click', closePresenterHUD);
 
@@ -626,6 +671,12 @@
     }
     if (scriptText) scriptText.textContent = item.script;
     if (qaContent) qaContent.innerHTML = item.qa;
+
+    // Update On-Screen Teleprompter Bar
+    var teleTag = $('#teleSectionTag');
+    var teleText = $('#teleprompterText');
+    if (teleTag) teleTag.textContent = item.num + ' ' + item.name + ' · 발표 대본 자막';
+    if (teleText) teleText.textContent = item.script;
   }
 
   // Scroll sync observer for presenter notes
@@ -807,7 +858,46 @@
     });
   }
 
-  // 10. Global Keyboard Shortcuts
+  // 10. On-Screen Teleprompter Bar Logic
+  var teleprompterBar = $('#teleprompterBar');
+  var dockTeleBtn = $('#dockTeleprompterToggle');
+  var headerTeleBtn = $('#btnHeaderTeleprompter');
+  var hudLaunchTeleBtn = $('#hudLaunchTeleBtn');
+  var teleCloseBtn = $('#teleCloseBtn');
+  var teleFontToggle = $('#teleFontToggle');
+  var isTeleprompterActive = false;
+
+  function isTeleActive() {
+    return teleprompterBar && teleprompterBar.classList.contains('is-active');
+  }
+
+  function toggleTeleprompter(force) {
+    if (!teleprompterBar) return;
+    isTeleprompterActive = typeof force === 'boolean' ? force : !isTeleActive();
+    teleprompterBar.classList.toggle('is-active', isTeleprompterActive);
+    teleprompterBar.setAttribute('aria-hidden', String(!isTeleprompterActive));
+    if (dockTeleBtn) dockTeleBtn.classList.toggle('is-active', isTeleprompterActive);
+    if (headerTeleBtn) headerTeleBtn.classList.toggle('is-active', isTeleprompterActive);
+  }
+
+  if (dockTeleBtn) dockTeleBtn.addEventListener('click', function () { toggleTeleprompter(); });
+  if (headerTeleBtn) headerTeleBtn.addEventListener('click', function () { toggleTeleprompter(); });
+  if (hudLaunchTeleBtn) {
+    hudLaunchTeleBtn.addEventListener('click', function () {
+      toggleTeleprompter(true);
+      closePresenterHUD();
+    });
+  }
+  if (teleCloseBtn) teleCloseBtn.addEventListener('click', function () { toggleTeleprompter(false); });
+  if (teleFontToggle) {
+    teleFontToggle.addEventListener('click', function () {
+      if (!teleprompterBar) return;
+      var isLarge = teleprompterBar.classList.toggle('is-large');
+      teleFontToggle.textContent = isLarge ? '글자 보통' : '글자 크게';
+    });
+  }
+
+  // 11. Global Keyboard Shortcuts
   document.addEventListener('keydown', function (e) {
     // If typing in input or textarea, don't trigger presenter shortcuts
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -818,7 +908,13 @@
       toggleFullscreen();
     } else if (key === 'n') {
       e.preventDefault();
-      togglePresenterHUD();
+      togglePresenterHUD('script');
+    } else if (key === 'i') {
+      e.preventDefault();
+      window.open('ir-deck.html', '_blank');
+    } else if (key === 's') {
+      e.preventDefault();
+      toggleTeleprompter();
     } else if (key === 't') {
       e.preventDefault();
       toggleTimer();
@@ -837,6 +933,8 @@
     } else if (e.key === 'Escape') {
       if (isPresenterHUDOpen()) {
         closePresenterHUD();
+      } else if (isTeleActive()) {
+        toggleTeleprompter(false);
       } else if (isLaserActive) {
         toggleLaser(false);
       }

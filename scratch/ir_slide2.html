@@ -1,0 +1,1558 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODAY DATE — Official IR Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Serif+KR:wght@500;600;700&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --burgundy: #852D43;
+      --burgundy-deep: #55202F;
+      --burgundy-darkest: #38131e;
+      --burgundy-tint: rgba(133, 45, 67, 0.08);
+      --ivory: #F8F6F2;
+      --ivory-dark: #eee9e0;
+      --white: #FFFFFF;
+      --charcoal: #29272A;
+      --gray: #6b666d;
+      --gray-light: #a39ea6;
+      --line: rgba(41, 39, 42, 0.12);
+      --line-soft: rgba(41, 39, 42, 0.06);
+      --gold: #c59b48;
+      --gold-light: #fbf7ee;
+      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      --font-serif: "Noto Serif KR", serif;
+      --font-latin: "Cormorant Garamond", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: #191619;
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    /* Presentation Slide Deck Container */
+    .deck-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 32px 0 100px;
+    }
+
+    /* 16:9 Slide Canvas */
+    .slide {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      background: var(--ivory);
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .slide-tag {
+      font-family: var(--font-latin);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--burgundy);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--burgundy);
+    }
+    .slide-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-top: 4px;
+    }
+    .slide-title em {
+      font-style: normal;
+      color: var(--burgundy);
+    }
+    .slide-brand-mark {
+      font-family: var(--font-latin);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .15em;
+      color: var(--gray-light);
+    }
+
+    /* Slide Body */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 16px;
+      font-size: 12.5px;
+      color: var(--gray);
+      position: relative;
+      z-index: 2;
+    }
+    .slide-footer__left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .slide-footer__num {
+      font-family: var(--font-latin);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+
+    /* Background Highlights */
+    .slide-bg-shape {
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(133, 45, 67, 0.06) 0%, rgba(133, 45, 67, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ---------------- SLIDE 01: COVER ---------------- */
+    .slide--cover {
+      background: linear-gradient(135deg, var(--burgundy-darkest) 0%, var(--burgundy-deep) 60%, var(--burgundy) 100%);
+      color: var(--ivory);
+      padding: 64px 80px;
+    }
+    .slide--cover .slide-brand-mark { color: rgba(248, 246, 242, 0.5); }
+    .cover-content {
+      max-width: 720px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .cover-eyebrow {
+      display: inline-block;
+      font-family: var(--font-latin);
+      font-size: 18px;
+      font-style: italic;
+      letter-spacing: .08em;
+      color: #ff9fb2;
+      margin-bottom: 16px;
+    }
+    .cover-title {
+      font-family: var(--font-serif);
+      font-size: 54px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .cover-title span {
+      color: #ffd6df;
+    }
+    .cover-lead {
+      font-size: 20px;
+      line-height: 1.6;
+      color: rgba(248, 246, 242, 0.88);
+      font-weight: 400;
+      margin-bottom: 36px;
+    }
+    .cover-chips {
+      display: flex;
+      gap: 12px;
+    }
+    .cover-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(248, 246, 242, 0.12);
+      border: 1px solid rgba(248, 246, 242, 0.22);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+    .cover-chip--gold {
+      background: rgba(197, 155, 72, 0.2);
+      border-color: rgba(197, 155, 72, 0.5);
+      color: #ffd987;
+    }
+    .cover-visual {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 380px;
+      height: 480px;
+      border-radius: 190px 190px var(--radius, 16px) var(--radius, 16px);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .cover-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------------- SLIDE 02: PROBLEM ---------------- */
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .p-card {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-top: 4px solid #d9534f;
+    }
+    .p-card__num {
+      font-family: var(--font-latin);
+      font-size: 15px;
+      font-weight: 700;
+      color: #d9534f;
+      margin-bottom: 12px;
+    }
+    .p-card__title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .p-card__desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gray);
+    }
+    .p-card__stat {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .p-card__stat strong {
+      color: #d9534f;
+      font-size: 16px;
+    }
+
+    .problem-quote {
+      margin-top: 24px;
+      background: #fbf7ee;
+      border-left: 4px solid var(--gold);
+      padding: 14px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #7c5819;
+    }
+
+    /* ---------------- SLIDE 03: SOLUTION ---------------- */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .sol-card {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 32px 26px;
+      border-top: 4px solid var(--burgundy);
+      display: flex;
+      flex-direction: column;
+    }
+    .sol-card__badge {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--burgundy);
+      background: var(--burgundy-tint);
+      padding: 4px 10px;
+      border-radius: 999px;
+      align-self: flex-start;
+      margin-bottom: 16px;
+    }
+    .sol-card__title {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .sol-card__desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gray);
+    }
+    .sol-card__rule {
+      margin-top: auto;
+      padding-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+
+    /* ---------------- SLIDE 04: MARKET ---------------- */
+    .market-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .tam-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tam-box {
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform .2s;
+    }
+    .tam-box--tam {
+      background: #f1edeb;
+      border: 1px solid rgba(41, 39, 42, 0.1);
+    }
+    .tam-box--sam {
+      background: #edd5dc;
+      border: 1px solid rgba(133, 45, 67, 0.25);
+    }
+    .tam-box--som {
+      background: var(--burgundy);
+      color: var(--white);
+      box-shadow: 0 10px 24px -6px rgba(133, 45, 67, 0.4);
+    }
+    .tam-box__title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .tam-box__desc {
+      font-size: 12.5px;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    .tam-box__val {
+      font-family: var(--font-latin);
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .market-points {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .m-point {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .m-point__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .m-point__desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    /* ---------------- SLIDE 05: PRODUCT ---------------- */
+    .steps-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .step-box {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 22px 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .step-box.is-highlight {
+      border: 2px solid var(--burgundy);
+      background: rgba(133, 45, 67, 0.04);
+    }
+    .step-box__num {
+      font-family: var(--font-latin);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--burgundy);
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .step-box__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-box__desc {
+      font-size: 12.5px;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    .product-callout {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--burgundy-deep);
+      color: var(--ivory);
+      padding: 16px 28px;
+      border-radius: 10px;
+    }
+    .product-callout h4 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .product-callout p {
+      font-size: 13.5px;
+      color: rgba(248, 246, 242, 0.8);
+      margin-top: 2px;
+    }
+    .product-callout .badge {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ---------------- SLIDE 06: BUSINESS MODEL ---------------- */
+    .bm-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 10px;
+    }
+    .unit-table-card {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .unit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 12px;
+    }
+    .unit-table th, .unit-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .unit-table th {
+      font-weight: 700;
+      color: var(--gray);
+      font-size: 12px;
+      background: var(--ivory);
+    }
+    .unit-table tr.total-row {
+      background: rgba(133, 45, 67, 0.06);
+      font-weight: 800;
+      color: var(--burgundy);
+    }
+    .unit-table tr.total-row td {
+      font-size: 15px;
+      border-bottom: 2px solid var(--burgundy);
+    }
+
+    .bm-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .bm-stat-card {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bm-stat-card__val {
+      font-family: var(--font-latin);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--burgundy);
+      line-height: 1;
+    }
+
+    /* ---------------- SLIDE 07: TRACTION ---------------- */
+    .traction-roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .t-phase {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .t-phase.is-now {
+      border: 2px solid var(--burgundy);
+      box-shadow: 0 10px 30px -8px rgba(133, 45, 67, 0.25);
+    }
+    .t-phase__tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--burgundy);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .t-phase__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .t-phase ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--gray);
+    }
+    .t-phase li {
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.5;
+    }
+    .t-phase li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--burgundy);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* ---------------- SLIDE 08: COMPETITION ---------------- */
+    .comp-table-wrap {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    .comp-table th, .comp-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .comp-table th {
+      background: #f1edeb;
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: 13px;
+    }
+    .comp-table th.col-td, .comp-table td.col-td {
+      background: rgba(133, 45, 67, 0.06);
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+    .comp-table th.col-td {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+    .badge-win {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 700;
+      font-size: 11.5px;
+      margin-right: 4px;
+    }
+    .badge-lose {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #ffebee;
+      color: #c62828;
+      font-size: 11.5px;
+      margin-right: 4px;
+    }
+
+    /* ---------------- SLIDE 09: TEAM ---------------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--burgundy-tint);
+      color: var(--burgundy);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      font-size: 24px;
+      font-weight: 700;
+      font-family: var(--font-latin);
+    }
+    .team-role {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--burgundy);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .team-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .team-desc {
+      font-size: 12.5px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ---------------- SLIDE 10: THE ASK ---------------- */
+    .ask-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .ask-target-card {
+      background: var(--burgundy-deep);
+      color: var(--ivory);
+      border-radius: 14px;
+      padding: 36px 32px;
+      box-shadow: 0 16px 40px rgba(85, 32, 47, 0.35);
+    }
+    .ask-target-card__badge {
+      font-family: var(--font-latin);
+      font-size: 14px;
+      letter-spacing: .12em;
+      color: #ffd6df;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .ask-target-card__val {
+      font-family: var(--font-latin);
+      font-size: 46px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .ask-target-card__desc {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(248, 246, 242, 0.85);
+    }
+
+    .ask-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ask-item {
+      background: var(--white);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ask-item__pct {
+      font-family: var(--font-latin);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--burgundy);
+    }
+
+    /* ---------------- SLIDE 11: CLOSING PUNCHLINE ---------------- */
+    .slide--closing {
+      background: linear-gradient(135deg, var(--burgundy-darkest) 0%, var(--burgundy-deep) 60%, var(--burgundy) 100%);
+      color: var(--ivory);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 100px;
+    }
+    .closing-mark {
+      font-family: var(--font-latin);
+      font-size: 28px;
+      letter-spacing: .2em;
+      color: #ffd6df;
+      margin-bottom: 24px;
+    }
+    .closing-quote {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .closing-quote span {
+      color: #ff9fb2;
+      display: block;
+    }
+    .closing-lead {
+      font-size: 19px;
+      line-height: 1.7;
+      color: rgba(248, 246, 242, 0.85);
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .closing-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: rgba(248, 246, 242, 0.1);
+      border: 1px solid rgba(248, 246, 242, 0.2);
+      font-size: 14px;
+      color: var(--ivory);
+    }
+
+    /* Floating Navigation Controls */
+    .deck-nav-bar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(24, 20, 23, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      color: var(--ivory);
+    }
+    .nav-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--ivory);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn:hover {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+    .nav-btn--primary {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+
+    /* Print / PDF generation styles */
+    @media print {
+      body {
+        background: transparent !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .deck-nav-bar {
+        display: none !important;
+      }
+      .deck-container {
+        padding: 0 !important;
+        gap: 0 !important;
+      }
+      .slide {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-after: page !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation & Print Controls -->
+  <div class="deck-nav-bar">
+    <a href="index.html" class="nav-btn">← 홈페이지 시연으로 복귀</a>
+    <span style="font-size: 13px; font-weight: 700; color: #ff9fb2;">TODAY DATE IR DECK</span>
+    <button type="button" class="nav-btn nav-btn--primary" onclick="window.print()">🖨️ PDF 다운로드 / 인쇄</button>
+  </div>
+
+  <main class="deck-container">
+
+    <!-- ==================== SLIDE 01: COVER ==================== -->
+    <section class="slide slide--cover" id="slide1">
+      <div class="slide-header">
+        <span class="slide-brand-mark">INVESTOR PITCH DECK 2026</span>
+        <span class="slide-brand-mark">CONFIDENTIAL</span>
+      </div>
+
+      <div class="cover-content">
+        <span class="cover-eyebrow">Same-day 1:1 Offline Dating Platform</span>
+        <h1 class="cover-title">
+          오늘 예약하고,<br>
+          오늘 만나는 <span>새로운 인연.</span>
+        </h1>
+        <p class="cover-lead">
+          기다림과 사전 결제 불안을 없앤<br>
+          국내 최초 <strong>당일 예약형 오프라인 1:1 소개팅 서비스</strong>, TODAY DATE입니다.
+        </p>
+        <div class="cover-chips">
+          <span class="cover-chip cover-chip--gold">★ Match First, Pay Later (매칭 후 결제)</span>
+          <span class="cover-chip">40분 1:1 집중 대화</span>
+          <span class="cover-chip">유휴 카페 공간 제휴</span>
+        </div>
+      </div>
+
+      <div class="cover-visual">
+        <img src="assets/hero.jpg" alt="TODAY DATE 라운지 카페 무드">
+      </div>
+
+      <div class="slide-footer">
+        <div class="slide-footer__left">
+          <span>발표팀: TODAY DATE 창업팀</span>
+          <span>·</span>
+          <span>타겟: 20대 대학생 & 사회초년생</span>
+        </div>
+        <span class="slide-footer__num">01 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 02: PROBLEM ==================== -->
+    <section class="slide" id="slide2">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">01. THE PROBLEM</span>
+          <h2 class="slide-title">만남은 원하지만, <em>기존 소개팅은 너무 피곤합니다.</em></h2>
+        </div>
+        <span class="slide-brand-mark">TODAY DATE</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="problem-cards">
+          <div class="p-card">
+            <span class="p-card__num">PAIN POINT 01</span>
+            <h3 class="p-card__title">끝없는 일정 조율과<br>오랜 기다림</h3>
+            <p class="p-card__desc">
+              소개팅 약속 하나를 잡기 위해 1~2주간 메시지만 주고받으며 감정이 소모됩니다. 정작 만남 당일이 되면 어색해지거나 약속이 파토나는 경우가 부지기수입니다.
+            </p>
+            <div class="p-card__stat">
+              청년 <strong>82%</strong> "일정 조율 과정에서 피로감 느낌"
+            </div>
+          </div>
+
+          <div class="p-card">
+            <span class="p-card__num">PAIN POINT 02</span>
+            <h3 class="p-card__title">매칭 성사 전 선결제에 대한<br>불신과 결제 저항</h3>
+            <p class="p-card__desc">
+              기존 소개팅 파티나 유료 앱은 "상대가 실제로 나올지도 모르는 상태"에서 수만 원의 선결제를 요구합니다. 유령회원 불안과 결제 부담이 서비스 진입을 막습니다.
+            </p>
+            <div class="p-card__stat">
+              청년 <strong>76%</strong> "선결제 소개팅에 거부감과 불신"
+            </div>
+          </div>
+
+          <div class="p-card">
+            <span class="p-card__num">PAIN POINT 03</span>
+            <h3 class="p-card__title">소란스러운 단체 미팅의<br>낮은 집중도</h3>
+            <p class="p-card__desc">
+              술집에서 진행되는 4:4, 6:6 로테이션 미팅은 소음 속에서 10분씩 짧게 대화하여 깊은 호감을 느끼기 어렵고, 진정성 없는 가벼운 만남으로 끝납니다.
+            </p>
+            <div class="p-card__stat">
+              단기 로테이션 미팅 <strong>애프터 성사율 8% 미만</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="problem-quote">
+          💡 청년들이 진짜 원하는 것은 "채팅만 길게 하는 앱"도, "시끄러운 단체 술자리"도 아닙니다.<br>
+          <strong>내가 오늘 시간 있을 때, 나에게 온전히 집중해 줄 1명의 상대를 안전하게 만나는 것</strong>입니다.
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">02 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 03: SOLUTION ==================== -->
+    <section class="slide" id="slide3">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">02. OUR SOLUTION</span>
+          <h2 class="slide-title">예약은 <em>당일에 간편하게</em>, 결제는 <em>매칭이 확정된 후에</em></h2>
+        </div>
+        <span class="slide-brand-mark">TODAY DATE</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="solution-grid">
+          <div class="sol-card">
+            <span class="sol-card__badge">POINT 01</span>
+            <h3 class="sol-card__title">당일 시간제 예약<br>(Time-Based Booking)</h3>
+            <p class="sol-card__desc">
+              미용실 예약 시스템처럼 사용자가 당일 비어있는 시간대(16:00, 17:00, 18:00 등)를 직관적인 시간표 카드로 확인하고 원하는 시간에 신청합니다. 번거로운 날짜 조율이 없습니다.
+            </p>
+            <div class="sol-card__rule">
+              ✓ 오늘 비는 시간에 즉시 예약
+            </div>
+          </div>
+
+          <div class="sol-card" style="border-top-color: #c59b48; background: #fffcf7;">
+            <span class="sol-card__badge" style="color: #8f5c15; background: rgba(197, 155, 72, 0.15);">KEY DIFFERENTIATOR</span>
+            <h3 class="sol-card__title">매칭 확정 후 예약금 결제<br>(Match First, Pay Later)</h3>
+            <p class="sol-card__desc">
+              상대방 확보 및 양측 참가자의 만남 의사가 100% 확인되기 전까지 단 1원도 결제하지 않습니다. 매칭이 완료된 순간에만 예약금을 결제하여 고객의 결제 저항을 완벽히 해소합니다.
+            </p>
+            <div class="sol-card__rule" style="color: #8f5c15;">
+              ✓ 매칭 완료 전 무과금 원칙
+            </div>
+          </div>
+
+          <div class="sol-card">
+            <span class="sol-card__badge">POINT 03</span>
+            <h3 class="sol-card__title">40분 1:1 집중 대화<br>(Focused Offline Date)</h3>
+            <p class="sol-card__desc">
+              술집이 아닌 분위기 좋은 로컬 제휴 카페에서 1:1로 약 40분간 진솔한 대화를 나눕니다. 서로 마음에 들면 자유롭게 나가 2차 데이트를 이어가고, 맞지 않으면 부담 없이 마무리합니다.
+            </p>
+            <div class="sol-card__rule">
+              ✓ 차분한 카페 만남 & 자유 애프터
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">03 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 04: MARKET ==================== -->
+    <section class="slide" id="slide4">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">03. MARKET OPPORTUNITY</span>
+          <h2 class="slide-title">2030 싱글 세대의 <em>오프라인 실만남 수요 폭발</em></h2>
+        </div>
+        <span class="slide-brand-mark">TAM-SAM-SOM</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="market-layout">
+          <div class="tam-stack">
+            <div class="tam-box tam-box--tam">
+              <div>
+                <div class="tam-box__title">TAM (전체 시장)</div>
+                <div class="tam-box__desc">국내 2030 미혼 인구 만남 및 데이팅 시장</div>
+              </div>
+              <div class="tam-box__val">1조 2,000억 원</div>
+            </div>
+
+            <div class="tam-box tam-box--sam">
+              <div>
+                <div class="tam-box__title">SAM (유효 시장)</div>
+                <div class="tam-box__desc">서울·수도권 거주 20대 대학생 & 사회초년생 매칭 수요</div>
+              </div>
+              <div class="tam-box__val">2,400억 원</div>
+            </div>
+
+            <div class="tam-box tam-box--som">
+              <div>
+                <div class="tam-box__title">SOM (초기 거점 시장)</div>
+                <div class="tam-box__desc">성수·강남 등 핫플레이스 대학생/직장인 초기 타겟 (점유율 3%)</div>
+              </div>
+              <div class="tam-box__val">72억 원</div>
+            </div>
+          </div>
+
+          <div class="market-points">
+            <div class="m-point">
+              <div class="m-point__title">⚡ 데이팅 앱 번아웃 (Dating App Burnout)</div>
+              <div class="m-point__desc">
+                스와이프 방식 앱의 피로도와 유령회원 증가로 실제 만남 성사율은 5% 미만으로 추락. 청년들은 화면 밖 "현실 만남"으로 회귀하고 있습니다.
+              </div>
+            </div>
+
+            <div class="m-point">
+              <div class="m-point__title">🏃 오프라인 실만남 소모임의 한계</div>
+              <div class="m-point__desc">
+                러닝크루, 독서모임 등 오프라인 모임이 급성장했으나, '연애 목적'이 불분명하여 인간관계 스트레스가 발생. 목적이 명확한 1:1 오프라인 매칭의 수요가 절실합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">04 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 05: PRODUCT ==================== -->
+    <section class="slide" id="slide5">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">04. PRODUCT & EXPERIENCE</span>
+          <h2 class="slide-title">미용실 예약 시스템에서 착안한 <em>5단계 심플 플로우</em></h2>
+        </div>
+        <span class="slide-brand-mark">SERVICE WORKFLOW</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="steps-flow">
+          <div class="step-box">
+            <span class="step-box__num">STEP 01</span>
+            <h4 class="step-box__title">당일 시간 선택</h4>
+            <p class="step-box__desc">
+              지역(성수·강남)과 오늘 가능한 타임슬롯(16시, 17시, 18시 등)을 확인 후 신청합니다.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-box__num">STEP 02</span>
+            <h4 class="step-box__title">운영자 상대 확보</h4>
+            <p class="step-box__desc">
+              운영팀이 해당 시간대 참가 희망자의 조건과 일정을 대조하여 최적의 상대를 선별합니다.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-box__num">STEP 03</span>
+            <h4 class="step-box__title">매칭 확정 안내</h4>
+            <p class="step-box__desc">
+              양쪽 참가자 모두에게 만남 의사를 재확인하고, 상호 동의 시 매칭 완료를 알립니다.
+            </p>
+          </div>
+
+          <div class="step-box is-highlight">
+            <span class="step-box__num">STEP 04 ★</span>
+            <h4 class="step-box__title">예약금 결제</h4>
+            <p class="step-box__desc">
+              매칭이 확정된 참가자에게만 예약금 결제 링크를 발송합니다. 노쇼를 방지하는 최소 보증금입니다.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-box__num">STEP 05</span>
+            <h4 class="step-box__title">40분 오프라인 만남</h4>
+            <p class="step-box__desc">
+              제휴 카페에서 1:1 대화 후, 호감이 있으면 자유롭게 밖으로 나가 2차 데이트를 이어갑니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="product-callout">
+          <div>
+            <h4>💡 핵심 운영 원칙: 상대가 없으면 절대 결제하지 않습니다.</h4>
+            <p>매칭이 성사되지 않은 고객에게는 0원의 결제도 청구되지 않아 환불 분쟁이 원천적으로 없습니다.</p>
+          </div>
+          <span class="badge">100% 사전 신원 인증</span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">05 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 06: BUSINESS MODEL ==================== -->
+    <section class="slide" id="slide6">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">05. BUSINESS MODEL</span>
+          <h2 class="slide-title">고정비 0원의 공간 제휴 모델과 <em>75%의 압도적 공헌이익률</em></h2>
+        </div>
+        <span class="slide-brand-mark">UNIT ECONOMICS</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="bm-layout">
+          <div class="unit-table-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px;">건당 유닛 이코노믹스 (Unit Economics)</h4>
+            <p style="font-size: 12px; color: var(--gray);">소개팅 1회 참가자 1인 기준 (가정치 기준)</p>
+            <table class="unit-table">
+              <thead>
+                <tr>
+                  <th>항목</th>
+                  <th style="text-align: right;">금액</th>
+                  <th>비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>이용료 매출 (A)</strong></td>
+                  <td style="text-align: right; font-weight: 700;">30,000원</td>
+                  <td>매칭 후 예약금 + 잔여금 합산</td>
+                </tr>
+                <tr>
+                  <td>제휴 카페 음료비 (B)</td>
+                  <td style="text-align: right; color: #c62828;">-6,500원</td>
+                  <td>1인 1음료 제공 (B2B 공급가)</td>
+                </tr>
+                <tr>
+                  <td>결제 수수료 (C)</td>
+                  <td style="text-align: right; color: #c62828;">-1,000원</td>
+                  <td>PG사 수수료 (약 3.3%)</td>
+                </tr>
+                <tr class="total-row">
+                  <td><strong>건당 공헌이익 (A-B-C)</strong></td>
+                  <td style="text-align: right; font-size: 18px;">22,500원</td>
+                  <td><strong>공헌이익률: 75.0%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bm-highlights">
+            <div class="bm-stat-card">
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: var(--gray);">1쌍(2인 매칭)당 공헌이익</div>
+                <div style="font-size: 13px; color: var(--gray); margin-top: 4px;">매출 6만원 대비 직접 변동비 1.5만원</div>
+              </div>
+              <div class="bm-stat-card__val">45,000원</div>
+            </div>
+
+            <div class="bm-stat-card">
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: var(--gray);">공간 고정 임대료 리스크</div>
+                <div style="font-size: 13px; color: var(--gray); margin-top: 4px;">자체 매장 임대 대신 유휴 카페 제휴</div>
+              </div>
+              <div class="bm-stat-card__val" style="color: #2e7d32;">0원</div>
+            </div>
+
+            <div style="background: var(--white); border: 1px solid var(--line-soft); border-radius: 12px; padding: 16px 20px; font-size: 13px; color: var(--charcoal); line-height: 1.55;">
+              <strong>💡 카페 파트너십 상생 구조:</strong><br>
+              손님이 적은 오후 4시~7시 시간대 카페에게 고정 음료 매출을 보장해주고, 좌석을 전용 미팅석으로 확보하는 Win-Win B2B 제휴 모델입니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">06 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 07: TRACTION ==================== -->
+    <section class="slide" id="slide7">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">06. TRACTION & ROADMAP</span>
+          <h2 class="slide-title">검증된 데이터 기반의 <em>단계별 스케일업 로드맵</em></h2>
+        </div>
+        <span class="slide-brand-mark">EXECUTION PLAN</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="traction-roadmap">
+          <div class="t-phase is-now">
+            <span class="t-phase__tag">PHASE 1 · CURRENT</span>
+            <h4 class="t-phase__title">클로즈드 파일럿 검증</h4>
+            <ul>
+              <li><strong>공식 홈페이지 론칭</strong> 및 사전 대기자 모집</li>
+              <li>성수 거점 <strong>10쌍(20명) 파일럿 테스트</strong></li>
+              <li>매칭 만족도 및 재예약 의사(NPS) 데이터 확보</li>
+              <li>노쇼율 0% 검증 및 카페 파트너십 프로세스 확립</li>
+            </ul>
+          </div>
+
+          <div class="t-phase">
+            <span class="t-phase__tag">PHASE 2 · 1~6 MONTHS</span>
+            <h4 class="t-phase__title">3대 거점 확장</h4>
+            <ul>
+              <li><strong>성수, 강남, 홍대</strong> 3대 핵심 거점 론칭</li>
+              <li>20개 제휴 카페 앵커 네트워크 구축</li>
+              <li>주말 정기 타임슬롯 확대 (월 200쌍 매칭)</li>
+              <li><strong>월 매출 1,200만 원</strong> 및 단위 흑자 구조 달성</li>
+            </ul>
+          </div>
+
+          <div class="t-phase">
+            <span class="t-phase__tag">PHASE 3 · 7~12 MONTHS</span>
+            <h4 class="t-phase__title">플랫폼 자동화 & 스케일업</h4>
+            <ul>
+              <li>성향·조건 기반 <strong>자동 매칭 알고리즘 고도화</strong></li>
+              <li>전용 모바일 웹앱 릴리즈 (카카오 알림톡 자동화)</li>
+              <li>수도권 주요 대학가 전역 확장</li>
+              <li>2차 F&B 데이트 코스 제휴 수수료 신규 창출</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">07 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 08: COMPETITION ==================== -->
+    <section class="slide" id="slide8">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">07. COMPETITIVE ADVANTAGE</span>
+          <h2 class="slide-title">기존 데이팅 서비스 대비 <em>압도적인 차별성과 방어막</em></h2>
+        </div>
+        <span class="slide-brand-mark">MOAT & COMPARISON</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">비교 항목</th>
+                <th style="width: 26%;">기존 데이팅 앱 (틴더, 글램 등)</th>
+                <th style="width: 26%;">오프라인 소개팅 파티 / 소모임</th>
+                <th style="width: 30%;" class="col-td">TODAY DATE (당사)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>만남 형태</strong></td>
+                <td>온라인 채팅 (실만남 전환율 5% 미만)</td>
+                <td>다대다 술자리 미팅 (소음, 피로도 높음)</td>
+                <td class="col-td"><span class="badge-win">우위</span> <strong>1:1 40분 차분한 카페 만남</strong></td>
+              </tr>
+              <tr>
+                <td><strong>시간 소요</strong></td>
+                <td>1~2주간 메시지 조율 필요</td>
+                <td>특정 날짜/주말까지 대기</td>
+                <td class="col-td"><span class="badge-win">우위</span> <strong>당일 빈 시간 즉시 예약</strong></td>
+              </tr>
+              <tr>
+                <td><strong>과금 시점</strong></td>
+                <td>채팅/프로필 열람 시 무조건 선과금</td>
+                <td>만남 성사 전 전액 선결제 요구</td>
+                <td class="col-td"><span class="badge-win">우위</span> <strong>매칭 확정 후 예약금 결제 (무과금 신청)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>노쇼(No-Show)</strong></td>
+                <td>제재 불가 (잠수/차단 빈번)</td>
+                <td>환불 불가로 고객 불만 발생</td>
+                <td class="col-td"><span class="badge-win">우위</span> <strong>예약금 몰취 + 상대방 100% 보상</strong></td>
+              </tr>
+              <tr>
+                <td><strong>심리적 부담</strong></td>
+                <td>유령회원 및 사기 프로필 불신</td>
+                <td>부담스러운 술자리 참여 부담</td>
+                <td class="col-td"><span class="badge-win">우위</span> <strong>100% 본인인증 & 낮/저녁 가벼운 커피</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">08 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 09: TEAM ==================== -->
+    <section class="slide" id="slide9">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">08. TEAM & CAPABILITIES</span>
+          <h2 class="slide-title">20대 타겟 인사이트와 <em>오프라인 실행력을 갖춘 원팀</em></h2>
+        </div>
+        <span class="slide-brand-mark">FOUNDING TEAM</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">CEO</div>
+            <div class="team-role">FOUNDER & CEO</div>
+            <h4 class="team-name">대표자</h4>
+            <p class="team-desc">
+              서비스 총괄 기획 및 사업 전략<br>
+              20대 대학생 라이프스타일 분석<br>
+              브랜드 에디토리얼 디렉팅
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">COO</div>
+            <div class="team-role">LEAD OPERATOR</div>
+            <h4 class="team-name">운영 총괄</h4>
+            <p class="team-desc">
+              로컬 파트너 카페 B2B 제휴 계약<br>
+              현장 매칭 및 참가자 신원 검증<br>
+              노쇼 방지 CS 및 고객 응대 체계
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">CMO</div>
+            <div class="team-role">GROWTH LEAD</div>
+            <h4 class="team-name">마케팅 디렉터</h4>
+            <p class="team-desc">
+              에브리타임 대학가 타겟 광고 집행<br>
+              인스타그램 릴스 숏폼 바이럴 캠페인<br>
+              초기 10쌍 파일럿 모집 완판 달성
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">CTO</div>
+            <div class="team-role">TECH LEAD</div>
+            <h4 class="team-name">기술 총괄</h4>
+            <p class="team-desc">
+              카카오 알림톡 자동화 시스템 구축<br>
+              반응형 웹 플랫폼 개발 및 유지보수<br>
+              추천 매칭 알고리즘 설계
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">09 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 10: THE ASK ==================== -->
+    <section class="slide" id="slide10">
+      <div class="slide-bg-shape"></div>
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">09. THE ASK</span>
+          <h2 class="slide-title">시드 펀딩 / 예비창업패키지 <em>5,000만 원 사업화 자금 유치</em></h2>
+        </div>
+        <span class="slide-brand-mark">FINANCIAL PROPOSAL</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="ask-layout">
+          <div class="ask-target-card">
+            <div class="ask-target-card__badge">TARGET INVESTMENT / GRANT</div>
+            <div class="ask-target-card__val">5,000만 원</div>
+            <p class="ask-target-card__desc">
+              초기 거점 제휴 인프라 확보 및 타겟 퍼포먼스 마케팅을 통해 <strong>6개월 내 월 매칭 300쌍, 월 매출 1,800만 원 달성</strong>을 목표로 합니다.
+            </p>
+          </div>
+
+          <div class="ask-breakdown">
+            <div class="ask-item">
+              <div>
+                <strong style="font-size: 15px; color: var(--charcoal);">거점 제휴 및 파일럿 운영비</strong>
+                <div style="font-size: 12.5px; color: var(--gray); margin-top: 2px;">성수·강남 20개 파트너 카페 보증 및 초기 운영</div>
+              </div>
+              <div class="ask-item__pct">30% <span style="font-size: 13px; font-weight: 600; color: var(--gray);">(1,500만 원)</span></div>
+            </div>
+
+            <div class="ask-item">
+              <div>
+                <strong style="font-size: 15px; color: var(--charcoal);">타겟 로컬 퍼포먼스 마케팅</strong>
+                <div style="font-size: 12.5px; color: var(--gray); margin-top: 2px;">인스타 릴스 숏폼 콘텐츠 및 대학가 에브리타임 릴리즈</div>
+              </div>
+              <div class="ask-item__pct">30% <span style="font-size: 13px; font-weight: 600; color: var(--gray);">(1,500만 원)</span></div>
+            </div>
+
+            <div class="ask-item">
+              <div>
+                <strong style="font-size: 15px; color: var(--charcoal);">시스템 개발 및 자동화 고도화</strong>
+                <div style="font-size: 12.5px; color: var(--gray); margin-top: 2px;">알림톡 연동 자동 매칭 알고리즘 및 모바일 웹앱 구축</div>
+              </div>
+              <div class="ask-item__pct">40% <span style="font-size: 13px; font-weight: 600; color: var(--gray);">(2,000만 원)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>TODAY DATE IR PITCH DECK</span>
+        <span class="slide-footer__num">10 / 11</span>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 11: CLOSING PUNCHLINE ==================== -->
+    <section class="slide slide--closing" id="slide11">
+      <div class="closing-mark">TODAY DATE</div>
+      <h2 class="closing-quote">
+        “오늘 예약하고,<br>
+        <span>오늘 만나는 새로운 인연.”</span>
+      </h2>
+      <p class="closing-lead">
+        기다림은 줄이고, 만남은 더 간편하게.<br>
+        상대가 확정된 순간, 오늘의 새로운 설렘이 시작됩니다.<br>
+        경청해 주셔서 감사합니다.
+      </p>
+      <div class="closing-contact">
+        <span>Contact: contact@todaydate.kr</span>
+        <span>·</span>
+        <span>Website: todaydate.kr</span>
+        <span>·</span>
+        <span>Q&A 시작</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Keyboard navigation (Arrow keys, Space)
+    var slides = document.querySelectorAll('.slide');
+    var currentSlide = 0;
+
+    function scrollToSlide(idx) {
+      if (idx < 0 || idx >= slides.length) return;
+      currentSlide = idx;
+      slides[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        scrollToSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        scrollToSlide(currentSlide - 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        scrollToSlide(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        scrollToSlide(slides.length - 1);
+      } else if (e.key.toLowerCase() === 'p') {
+        window.print();
+      }
+    });
+  </script>
+<script>setTimeout(function(){ document.getElementById('slide2').scrollIntoView(); }, 300);</script></body>
+</html>
+

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="file:///c:/Users/Admin/Documents/GitHub/BB/css/style.css"></head>
+<body>
+  <div id="testHud" class="presenter-hud is-open">
+    <div class="presenter-hud__drawer">
+      <div id="scriptBox" class="hud-box hud-box--script">
+        <div id="hudScriptText" class="hud-script-text">테스트 대본 텍스트입니다.</div>
+      </div>
+    </div>
+  </div>
+  <aside id="testBar" class="teleprompter-bar is-active">
+    <div id="testText" class="teleprompter-bar__text">테스트 자막 텍스트입니다.</div>
+  </aside>
+  <div id="result"></div>
+  <script>
+    var hud = document.getElementById('testHud');
+    var drawer = hud.querySelector('.presenter-hud__drawer');
+    var bar = document.getElementById('testBar');
+    var csHud = window.getComputedStyle(hud);
+    var csDrawer = window.getComputedStyle(drawer);
+    var csBar = window.getComputedStyle(bar);
+    document.getElementById('result').innerText = JSON.stringify({
+      hud_vis: csHud.visibility,
+      hud_display: csHud.display,
+      drawer_transform: csDrawer.transform,
+      drawer_width: csDrawer.width,
+      bar_vis: csBar.visibility,
+      bar_opacity: csBar.opacity,
+      bar_transform: csBar.transform
+    });
+  </script>
+</body>
+</html>
